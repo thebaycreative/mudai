@@ -1,0 +1,1743 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudai Restaurant - Authentic Ethiopian Dining</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --burgundy: #8B3A3A;
+            --cream: #F5F1E8;
+            --charcoal: #2C2C2C;
+            --terracotta: #C85A3A;
+            --light-gold: #E8D9B5;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--charcoal);
+            line-height: 1.8;
+            background: var(--cream);
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Garamond', 'Georgia', serif;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--burgundy);
+            color: var(--cream);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 3px;
+            font-weight: 300;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.95rem 2.5rem;
+            background: var(--gold);
+            color: var(--charcoal);
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            box-shadow: none;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background: var(--charcoal);
+            color: var(--gold);
+            transform: none;
+        }
+
+        /* Section Styling */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.8rem;
+            color: var(--charcoal);
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        /* Coffee Ceremony Section */
+        .coffee-ceremony {
+            background: linear-gradient(to right, rgba(212, 175, 55, 0.05), rgba(200, 90, 58, 0.05));
+        }
+
+        .ceremony-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .ceremony-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 0;
+            border: none;
+            border-top: 2px solid var(--gold);
+            box-shadow: none;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .ceremony-card:hover {
+            opacity: 0.85;
+            transform: none;
+        }
+
+        .ceremony-number {
+            font-size: 2.5rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .ceremony-card h3 {
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .ceremony-card p {
+            color: var(--charcoal);
+            opacity: 0.75;
+            line-height: 1.8;
+        }
+
+        /* Menu Section */
+        .menu {
+            background: white;
+        }
+
+        .menu-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 1.8rem;
+            border: 1px solid var(--gold);
+            background: transparent;
+            color: var(--charcoal);
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .filter-btn.active {
+            background: var(--gold);
+            color: white;
+            border-color: var(--gold);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--charcoal);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 3px solid var(--burgundy);
+            transition: all 0.3s ease;
+            opacity: 1;
+        }
+
+        .menu-item.hidden {
+            display: none;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item h3 {
+            color: var(--burgundy);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-price {
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .menu-category {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--charcoal);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-item p {
+            color: var(--charcoal);
+            opacity: 0.8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Cultural Stories Section */
+        .stories {
+            background: linear-gradient(to right, rgba(139, 58, 58, 0.05), rgba(212, 175, 55, 0.05));
+        }
+
+        .story {
+            background: transparent;
+            padding: 2rem 0;
+            margin-bottom: 2.5rem;
+            border-radius: 0;
+            border: none;
+            border-bottom: 1px solid #e8e8e8;
+            box-shadow: none;
+        }
+
+        .story:last-child {
+            border-bottom: none;
+        }
+
+        .story-title {
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .story-date {
+            color: var(--gold);
+            font-weight: 400;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .story-content {
+            color: var(--charcoal);
+            line-height: 1.9;
+            opacity: 0.8;
+        }
+
+        /* Catering Section */
+        .catering {
+            background: linear-gradient(to right, rgba(212, 175, 55, 0.08), rgba(200, 90, 58, 0.08));
+        }
+
+        .catering-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: var(--charcoal);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .catering-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .catering-package {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 0;
+            border: 1px solid #e8e8e8;
+            box-shadow: none;
+            transition: border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .catering-package:hover {
+            border-color: var(--gold);
+            transform: none;
+        }
+
+        .catering-package.featured {
+            border: 2px solid var(--gold);
+            transform: none;
+        }
+
+        .catering-badge {
+            display: inline-block;
+            background: transparent;
+            color: var(--gold);
+            padding: 0.3rem 0;
+            border-radius: 0;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            width: fit-content;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .catering-package h3 {
+            color: var(--charcoal);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .catering-price {
+            color: var(--gold);
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        .catering-servings {
+            color: var(--charcoal);
+            opacity: 0.65;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .catering-includes {
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .catering-includes h4 {
+            color: var(--charcoal);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .catering-includes ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .catering-includes li {
+            color: var(--charcoal);
+            opacity: 0.75;
+            font-size: 0.9rem;
+            margin-bottom: 0.7rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .catering-includes li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 300;
+        }
+
+        .catering-cta {
+            display: inline-block;
+            padding: 0.9rem 1.8rem;
+            background: var(--burgundy);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .catering-cta:hover {
+            background: var(--gold);
+            color: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        .catering-features {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 2px solid var(--light-gold);
+        }
+
+        .catering-features h3 {
+            text-align: center;
+            color: var(--burgundy);
+            margin-bottom: 2rem;
+            font-family: Georgia, serif;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            color: var(--burgundy);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .feature-card p {
+            color: var(--charcoal);
+            opacity: 0.8;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Online Ordering Section */
+        .online-ordering {
+            background: white;
+        }
+
+        .ordering-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--charcoal);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .platform-card {
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-radius: 0;
+            padding: 2.5rem;
+            text-align: center;
+            transition: border-color 0.3s ease;
+            box-shadow: none;
+        }
+
+        .platform-card:hover {
+            border-color: var(--gold);
+            transform: none;
+        }
+
+        .platform-logo {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .platform-card h3 {
+            color: var(--charcoal);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .platform-description {
+            color: var(--charcoal);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .platform-benefits {
+            text-align: left;
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.8rem;
+            border-bottom: 1px solid var(--light-gold);
+        }
+
+        .platform-benefits h4 {
+            color: var(--gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .platform-benefits ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .platform-benefits li {
+            color: var(--charcoal);
+            opacity: 0.8;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1.3rem;
+            position: relative;
+        }
+
+        .platform-benefits li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--terracotta);
+            font-weight: bold;
+        }
+
+        .platform-btn {
+            display: inline-block;
+            padding: 0.95rem 2rem;
+            background: var(--gold);
+            color: var(--charcoal);
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: none;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .platform-btn:hover {
+            background: var(--charcoal);
+            color: white;
+            transform: none;
+        }
+
+        .platform-btn.ubereats {
+            background: #000;
+            color: white;
+        }
+
+        .platform-btn.ubereats:hover {
+            background: var(--charcoal);
+        }
+
+        .platform-btn.doordash {
+            background: #FF6000;
+            color: white;
+        }
+
+        .platform-btn.doordash:hover {
+            background: #E55A00;
+        }
+
+        .ordering-note {
+            text-align: center;
+            padding: 1.5rem;
+            background: transparent;
+            border-radius: 0;
+            border: 1px solid #e8e8e8;
+            border-left: 2px solid var(--gold);
+            color: var(--charcoal);
+            opacity: 0.85;
+            font-size: 0.9rem;
+            margin-top: 2.5rem;
+        }
+
+        .reservation h2 {
+            color: var(--cream);
+            font-weight: 300;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 0;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--cream);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--gold);
+        }
+
+        .form-group select option {
+            background: var(--charcoal);
+            color: white;
+        }
+
+        .submit-btn {
+            padding: 0.95rem;
+            background: var(--gold);
+            color: var(--charcoal);
+            border: none;
+            border-radius: 0;
+            font-weight: 400;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .submit-btn:hover {
+            background: var(--cream);
+            color: var(--burgundy);
+            transform: none;
+        }
+
+        .success-message {
+            display: none;
+            background: var(--light-gold);
+            color: var(--charcoal);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        /* Hero Food Image */
+        .hero-image {
+            margin-top: 2rem;
+            max-width: 600px;
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(200, 90, 58, 0.2));
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--light-gold), var(--terracotta));
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        /* Enhanced Menu Cards with Images */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 0;
+            border-radius: 0;
+            border: 1px solid #e8e8e8;
+            overflow: hidden;
+            box-shadow: none;
+            transition: border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+        }
+
+        .menu-item:hover {
+            border-color: var(--gold);
+            transform: none;
+        }
+
+        .menu-item.hidden {
+            display: none;
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--light-gold), var(--terracotta));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .menu-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-placeholder-sm {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--light-gold), var(--terracotta));
+            color: white;
+        }
+
+        .menu-item-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.8rem;
+        }
+
+        .menu-item h3 {
+            color: var(--charcoal);
+            font-size: 1.2rem;
+            margin-bottom: 0;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-price {
+            color: var(--gold);
+            font-weight: 400;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-category {
+            display: inline-block;
+            background: transparent;
+            color: var(--gold);
+            padding: 0.3rem 0;
+            border-radius: 0;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .menu-item p {
+            color: var(--charcoal);
+            opacity: 0.75;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            flex-grow: 1;
+        }
+
+        .menu-ingredients {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e8e8e8;
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            opacity: 0.65;
+        }
+
+        .menu-ingredients strong {
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: linear-gradient(to bottom, rgba(212, 175, 55, 0.05), white);
+        }
+
+        .gallery h2 {
+            margin-bottom: 1rem;
+        }
+
+        .gallery-intro {
+            text-align: center;
+            color: var(--charcoal);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--gold), var(--terracotta));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            box-shadow: none;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-item:hover {
+            opacity: 0.9;
+            transform: none;
+        }
+
+        .gallery-item-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            color: white;
+            padding: 1.5rem 1rem 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--cream);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .menu-filters {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .ceremony-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ceremony-card {
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        .ceremony-card:nth-child(1) { animation-delay: 0.1s; }
+        .ceremony-card:nth-child(2) { animation-delay: 0.2s; }
+        .ceremony-card:nth-child(3) { animation-delay: 0.3s; }
+
+        /* Reduce motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--gold);
+            color: var(--charcoal);
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-brand">🇪🇹 Mudai</a>
+            <ul class="nav-links">
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#catering">Catering</a></li>
+                <li><a href="#ordering">Order Online</a></li>
+                <li><a href="#stories">Stories</a></li>
+                <li><a href="#reserve">Reserve</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Mudai Restaurant</h1>
+            <p class="hero-subtitle">Experience Authentic Ethiopian Cuisine & Coffee Ceremony</p>
+            <a href="#menu" class="cta-button">Explore Our Menu</a>
+            <div class="hero-image">
+                <div class="image-placeholder">🍲</div>
+                <!-- Replace with: <img src="images/hero-platter.jpg" alt="Ethiopian food platter"> -->
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- Menu Section -->
+        <section id="menu" class="menu">
+            <h2>Our Menu</h2>
+            <div class="menu-filters">
+                <button class="filter-btn active" data-filter="all">All Dishes</button>
+                <button class="filter-btn" data-filter="vegetarian">Vegetarian</button>
+                <button class="filter-btn" data-filter="meat">Meat</button>
+                <button class="filter-btn" data-filter="sides">Sides & Breads</button>
+            </div>
+            <div class="menu-grid">
+                <!-- Vegetarian Items -->
+                <div class="menu-item" data-category="vegetarian">
+                    <div class="menu-item-image">
+                        <div class="image-placeholder-sm">🍲</div>
+                        <!-- Replace with: <img src="images/misir-wot.jpg" alt="Misir Wot - Red Lentil Stew"> -->
+                    </div>
+                    <div class="menu-item-content">
+                        <span class="menu-category">VEGETARIAN</span>
+                        <div class="menu-item-header">
+                            <h3>Misir Wot</h3>
+                            <span class="menu-price">$12</span>
+                        </div>
+                        <p>A beloved Ethiopian classic, our misir wot features red lentils slowly simmered with garlic, ginger, onions, and our house-blend berbere spice. This hearty stew achieves its signature deep color and complex heat through careful layering of spices. Served on a bed of fluffy injera, it's a comfort dish that warms from the inside out.</p>
+                        <div class="menu-ingredients">
+                            <strong>Contains:</strong> Red lentils, berbere spice, ginger, garlic, onions, oil
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="vegetarian">
+                    <div class="menu-item-image">
+                        <div class="image-placeholder-sm">🥬</div>
+                        <!-- Replace with: <img src="images/gomen.jpg" alt="Gomen - Collard Greens"> -->
+                    </div>
+                    <div class="menu-item-content">
+                        <span class="menu-category">VEGETARIAN</span>
+                        <div class="menu-item-header">
+                            <h3>Gomen</h3>
+                            <span class="menu-price">$10</span>
+                        </div>
+                        <p>Fresh collard greens sautéed until tender in a fragrant blend of garlic, ginger, onions, and aromatic berbere spices. This simple yet elegant dish celebrates the natural sweetness of the greens while the spices add warmth and depth. A staple of Ethiopian tables, gomen is both nourishing and deeply flavorful.</p>
+                        <div class="menu-ingredients">
+                            <strong>Contains:</strong> Collard greens, garlic, ginger, berbere, onions, oil
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="vegetarian">
+                    <div class="menu-item-image">
+                        <div class="image-placeholder-sm">🍶</div>
+                        <!-- Replace with: <img src="images/shiro.jpg" alt="Shiro - Chickpea Stew"> -->
+                    </div>
+                    <div class="menu-item-content">
+                        <span class="menu-category">VEGETARIAN</span>
+                        <div class="menu-item-header">
+                            <h3>Shiro</h3>
+                            <span class="menu-price">$11</span>
+                        </div>
+                        <p>Our silky shiro is made from roasted chickpea flour blended into a creamy paste with traditional spices. This dish offers a rich, nutty flavor profile that's entirely plant-based yet deeply satisfying. The smooth texture and warming spices make it a favorite among vegans and meat-eaters alike.</p>
+                        <div class="menu-ingredients">
+                            <strong>Contains:</strong> Chickpea flour, ginger, garlic, onions, berbere, oil (vegan)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meat Items -->
+                <div class="menu-item" data-category="meat">
+                    <div class="menu-item-image">
+                        <div class="image-placeholder-sm">🍗</div>
+                        <!-- Replace with: <img src="images/doro-wot.jpg" alt="Doro Wot - Spiced Chicken"> -->
+                    </div>
+                    <div class="menu-item-content">
+                        <span class="menu-category">MEAT</span>
+                        <div class="menu-item-header">
+                            <h3>Doro Wot</h3>
+                            <span class="menu-price">$16</span>
+                        </div>
+                        <p>Our signature doro wot showcases tender, succulent chicken slow-cooked until it falls apart in our aromatic berbere-spiced sauce. Hard-boiled eggs add richness and texture, while traditional herbs deepen the complexity. This showstopper dish has been perfected over generations and remains the heart of Ethiopian dining.</p>
+                        <div class="menu-ingredients">
+                            <strong>Contains:</strong> Chicken, hard-boiled eggs, berbere spice, onions, ginger, garlic, oil
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="meat">
+                    <div class="menu-item-image">
+                        <div class="image-placeholder-sm">🥩</div>
+                        <!-- Replace with: <img src="images/kitfo.jpg" alt="Kitfo - Seasoned Raw Beef"> -->
+                    </div>
+                    <div class="menu-item-content">
+                        <span class="menu-category">MEAT</span>
+                        <div class="menu-item-header">
+                            <h3>Kitfo</h3>
+                            <span class="menu-price">$18</span>
+                        </div>
+                        <p>For the adventurous palate, our kitfo presents finely minced raw beef delicately seasoned with mitmita spice and creamy Ethiopian butter. Served alongside injera and cool collard greens to balance the heat, kitfo is a celebration of quality ingredients and bold flavors. A true Ethiopian delicacy.</p>
+                        <div class="menu-ingredients">
+                            <strong>Contains:</strong> Raw beef, mitmita spice, Ethiopian butter, onions (handle with care)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="meat">
+                    <div class="menu-item-image">
+                        <div class="image-placeholder-sm">🍖</div>
+                        <!-- Replace with: <img src="images/tibs.jpg" alt="Tibs - Sautéed Beef"> -->
+                    </div>
+                    <div class="menu-item-content">
+                        <span class="menu-category">MEAT</span>
+                        <div class="menu-item-header">
+                            <h3>Tibs</h3>
+                            <span class="menu-price">$17</span>
+                        </div>
+                        <p>Tender cuts of beef are quickly sautéed with vibrant mixed vegetables, aromatic ginger, and fresh garlic in this beautiful showcase of quality ingredients and technique. The high heat creates a delicious char while keeping the meat succulent. Tibs represents Ethiopian cuisine at its most refined and accessible.</p>
+                        <div class="menu-ingredients">
+                            <strong>Contains:</strong> Beef, mixed vegetables, ginger, garlic, onions, oil
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sides & Breads -->
+                <div class="menu-item" data-category="sides">
+                    <div class="menu-item-image">
+                        <div class="image-placeholder-sm">🍞</div>
+                        <!-- Replace with: <img src="images/injera.jpg" alt="Injera - Teff Bread"> -->
+                    </div>
+                    <div class="menu-item-content">
+                        <span class="menu-category">BREAD</span>
+                        <div class="menu-item-header">
+                            <h3>Injera</h3>
+                            <span class="menu-price">$3</span>
+                        </div>
+                        <p>Our signature injera is handcrafted daily using traditional methods with teff flour—an ancient Ethiopian grain. This spongy sourdough flatbread serves as both plate and utensil, absorbing the flavors of the stews while providing a tangy, slightly sour taste. Each piece is a labor of love made fresh to order.</p>
+                        <div class="menu-ingredients">
+                            <strong>Contains:</strong> Teff flour, water, salt (naturally fermented, sourdough)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="sides">
+                    <div class="menu-item-image">
+                        <div class="image-placeholder-sm">🍽️</div>
+                        <!-- Replace with: <img src="images/mixed-platter.jpg" alt="Mixed Platter - Feast"> -->
+                    </div>
+                    <div class="menu-item-content">
+                        <span class="menu-category">FEAST</span>
+                        <div class="menu-item-header">
+                            <h3>Mudai Feast Platter</h3>
+                            <span class="menu-price">$45</span>
+                        </div>
+                        <p>Our showstopping feast platter combines the best of our kitchen: doro wot, tibs, misir wot, gomen, shiro, and more, all served on a bed of injera for two to three people. This is the ultimate way to experience Ethiopian cuisine's diversity and share an authentic dining experience with companions. Perfect for celebrations and first-time visitors.</p>
+                        <div class="menu-ingredients">
+                            <strong>Contains:</strong> Multiple items - please inquire about specific allergens
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="sides">
+                    <div class="menu-item-image">
+                        <div class="image-placeholder-sm">☕</div>
+                        <!-- Replace with: <img src="images/coffee-ceremony.jpg" alt="Ethiopian Coffee Ceremony"> -->
+                    </div>
+                    <div class="menu-item-content">
+                        <span class="menu-category">BEVERAGE</span>
+                        <div class="menu-item-header">
+                            <h3>Ethiopian Coffee Ceremony</h3>
+                            <span class="menu-price">$8</span>
+                        </div>
+                        <p>Experience the full Ethiopian coffee ceremony with our master barista. Green beans are roasted over live coals, hand-ground in a traditional mortar, and brewed in an authentic jebena pot. The ritual is served with popcorn and conversation, a celebration of hospitality and connection that embodies Ethiopian culture.</p>
+                        <div class="menu-ingredients">
+                            <strong>Includes:</strong> Roasting, grinding, brewing, popcorn, and three rounds of coffee
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultural Stories Section -->
+        <section id="stories" class="stories">
+            <h2>Ethiopian Heritage</h2>
+            <div class="story">
+                <div class="story-title">🌾 The Origin of Teff & Injera</div>
+                <div class="story-date">Ancient Ethiopia</div>
+                <div class="story-content">
+                    Injera, the foundation of Ethiopian cuisine, is made from teff flour—a grain native to Ethiopia that dates back thousands of years. This nutrient-rich ancient grain is fermented into a spongy sourdough flatbread that serves as both plate and utensil, embodying the communal spirit of Ethiopian dining.
+                </div>
+            </div>
+
+            <div class="story">
+                <div class="story-title">☕ The Coffee Legacy</div>
+                <div class="story-date">9th Century</div>
+                <div class="story-content">
+                    Legend tells of a goat herder named Kaldi who discovered coffee in the Ethiopian highlands. The bean's journey from these misty mountains to tables worldwide began centuries ago, and the traditional Ethiopian coffee ceremony remains a sacred ritual of hospitality and connection.
+                </div>
+            </div>
+
+            <div class="story">
+                <div class="story-title">👥 Community & Injera</div>
+                <div class="story-date">Timeless Tradition</div>
+                <div class="story-content">
+                    In Ethiopian culture, eating is an act of community. The custom of "gursha"—hand-feeding loved ones as a sign of affection and respect—transforms every meal into a shared celebration. At Mudai, we honor this tradition by creating space for your family and friends to gather, connect, and enjoy authentic flavors together.
+                </div>
+            </div>
+        </section>
+
+        <!-- Coffee Ceremony Section -->
+        <section id="ceremony" class="coffee-ceremony">
+            <h2>The Ethiopian Coffee Ceremony</h2>
+            <div class="ceremony-grid">
+                <div class="ceremony-card">
+                    <div class="ceremony-number">①</div>
+                    <h3>Roasting</h3>
+                    <p>Fresh green coffee beans are roasted over hot coals, filling the air with an aromatic, earthy scent that invites guests to share this sacred ritual.</p>
+                </div>
+                <div class="ceremony-card">
+                    <div class="ceremony-number">②</div>
+                    <h3>Grinding</h3>
+                    <p>The roasted beans are ground by hand using a traditional mortar and pestle, releasing their full flavor and creating a meditative moment of connection.</p>
+                </div>
+                <div class="ceremony-card">
+                    <div class="ceremony-number">③</div>
+                    <h3>Brewing</h3>
+                    <p>The grounds are steeped in a traditional jebena pot with hot water, then poured into small handleless cups and shared among all present.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catering Section -->
+        <section id="catering" class="catering">
+            <h2>Private Catering & Events</h2>
+            <div class="catering-intro">
+                <p>Whether you're planning an intimate gathering, corporate event, or celebration, Mudai brings authentic Ethiopian cuisine to your venue. Our catering packages are customizable and designed to create memorable shared dining experiences.</p>
+            </div>
+
+            <div class="catering-grid">
+                <!-- Small Gathering Package -->
+                <div class="catering-package">
+                    <span class="catering-badge">SMALL GROUPS</span>
+                    <h3>Intimate Gathering</h3>
+                    <div class="catering-price">$25<span style="font-size: 1rem; opacity: 0.8;">/person</span></div>
+                    <div class="catering-servings">Serves 4-8 people</div>
+                    <div class="catering-includes">
+                        <h4>Includes</h4>
+                        <ul>
+                            <li>3 vegetarian dishes</li>
+                            <li>2 meat selections</li>
+                            <li>Fresh injera (2+ loaves)</li>
+                            <li>Beverages & coffee</li>
+                            <li>Delivery to your home</li>
+                        </ul>
+                    </div>
+                    <a href="tel:+15551234567" class="catering-cta">Request Quote</a>
+                </div>
+
+                <!-- Standard Package -->
+                <div class="catering-package featured">
+                    <span class="catering-badge" style="background: var(--gold); color: var(--charcoal);">MOST POPULAR</span>
+                    <h3>Premium Feast</h3>
+                    <div class="catering-price">$32<span style="font-size: 1rem; opacity: 0.8;">/person</span></div>
+                    <div class="catering-servings">Serves 10-25 people</div>
+                    <div class="catering-includes">
+                        <h4>Includes</h4>
+                        <ul>
+                            <li>5 vegetarian dishes</li>
+                            <li>3 signature meat dishes</li>
+                            <li>Fresh injera (5+ loaves)</li>
+                            <li>Ethiopian coffee ceremony</li>
+                            <li>Delivery & setup</li>
+                            <li>Serving utensils & platters</li>
+                        </ul>
+                    </div>
+                    <a href="tel:+15551234567" class="catering-cta">Request Quote</a>
+                </div>
+
+                <!-- Large Event Package -->
+                <div class="catering-package">
+                    <span class="catering-badge">LARGE EVENTS</span>
+                    <h3>Grand Celebration</h3>
+                    <div class="catering-price">$28<span style="font-size: 1rem; opacity: 0.8;">/person</span></div>
+                    <div class="catering-servings">Serves 30+ people</div>
+                    <div class="catering-includes">
+                        <h4>Includes</h4>
+                        <ul>
+                            <li>6+ vegetarian & meat dishes</li>
+                            <li>Premium injera selection</li>
+                            <li>Full coffee ceremony service</li>
+                            <li>Professional delivery & setup</li>
+                            <li>Service staff (optional)</li>
+                            <li>Custom menu planning</li>
+                        </ul>
+                    </div>
+                    <a href="tel:+15551234567" class="catering-cta">Request Quote</a>
+                </div>
+            </div>
+
+            <!-- Catering Features -->
+            <div class="catering-features">
+                <h3>Why Choose Mudai for Your Event?</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">👨‍🍳</div>
+                        <h4>Authentic Preparation</h4>
+                        <p>Every dish is prepared fresh by our experienced chefs using traditional Ethiopian methods and premium ingredients.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h4>Customizable Menus</h4>
+                        <p>Work with us to create a menu that matches your dietary needs, preferences, and event theme perfectly.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚚</div>
+                        <h4>Seamless Delivery</h4>
+                        <p>We handle delivery, setup, and even cleanup. Focus on your guests while we handle the details.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">☕</div>
+                        <h4>Coffee Ceremony</h4>
+                        <p>Complete your event with our traditional Ethiopian coffee ceremony—a cultural experience your guests won't forget.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h4>Competitive Pricing</h4>
+                        <p>Premium quality doesn't have to break the bank. Our catering provides exceptional value for special occasions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⏰</div>
+                        <h4>Flexible Scheduling</h4>
+                        <p>We work with your timeline. Whether you need last-minute catering or planning ahead, we're here to help.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ordering-note">
+                📞 Contact us directly at <strong>(555) 123-4567</strong> or email <strong>catering@mudai.com</strong> for personalized quotes and menu planning.
+            </div>
+        </section>
+
+        <!-- Online Ordering Section -->
+        <section id="ordering" class="online-ordering">
+            <h2>Order Online</h2>
+            <div class="ordering-intro">
+                <p>Craving authentic Ethiopian food? Order from Mudai on your favorite delivery platform. Enjoy the same delicious dishes prepared fresh and delivered to your door. Browse our full menu and place your order now.</p>
+            </div>
+
+            <div class="platform-grid">
+                <!-- UberEats Card -->
+                <div class="platform-card">
+                    <div class="platform-logo">🛵</div>
+                    <h3>UberEats</h3>
+                    <p class="platform-description">Order from UberEats for fast, reliable delivery with real-time tracking</p>
+                    <div class="platform-benefits">
+                        <h4>Why Order on UberEats?</h4>
+                        <ul>
+                            <li>Real-time delivery tracking</li>
+                            <li>Contactless delivery options</li>
+                            <li>Easy reorder your favorites</li>
+                            <li>Save time with saved addresses</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.ubereats.com/" target="_blank" rel="noopener noreferrer" class="platform-btn ubereats">Order on UberEats</a>
+                </div>
+
+                <!-- DoorDash Card -->
+                <div class="platform-card">
+                    <div class="platform-logo">🏃</div>
+                    <h3>DoorDash</h3>
+                    <p class="platform-description">Get your food delivered fast with DoorDash's reliable service</p>
+                    <div class="platform-benefits">
+                        <h4>Why Order on DoorDash?</h4>
+                        <ul>
+                            <li>Lightning-fast delivery</li>
+                            <li>Exclusive DoorDash Rewards</li>
+                            <li>Schedule ahead feature</li>
+                            <li>Driver chat & support</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.doordash.com/" target="_blank" rel="noopener noreferrer" class="platform-btn doordash">Order on DoorDash</a>
+                </div>
+            </div>
+
+            <div class="ordering-note">
+                💡 <strong>Pro Tip:</strong> Ordering directly from our restaurant for pickup comes with a 5% discount! Call us at <strong>(555) 123-4567</strong> to place your order.
+            </div>
+        </section>
+        <section class="gallery">
+            <h2>Visual Journey</h2>
+            <p class="gallery-intro">Discover the artistry and passion that goes into every plate at Mudai</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="image-placeholder-sm">🍲</div>
+                    <div class="gallery-item-label">Traditional Wot</div>
+                    <!-- Replace with: <img src="images/gallery-wot.jpg" alt="Traditional Ethiopian Wot"> -->
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder-sm">☕</div>
+                    <div class="gallery-item-label">Coffee Ceremony</div>
+                    <!-- Replace with: <img src="images/gallery-coffee.jpg" alt="Ethiopian Coffee Ceremony"> -->
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder-sm">🍞</div>
+                    <div class="gallery-item-label">Fresh Injera</div>
+                    <!-- Replace with: <img src="images/gallery-injera.jpg" alt="Freshly Made Injera"> -->
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder-sm">👥</div>
+                    <div class="gallery-item-label">Community Dining</div>
+                    <!-- Replace with: <img src="images/gallery-community.jpg" alt="Family Gathering"> -->
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder-sm">🌶️</div>
+                    <div class="gallery-item-label">Spice Blend</div>
+                    <!-- Replace with: <img src="images/gallery-spices.jpg" alt="Ethiopian Spices"> -->
+                </div>
+                <div class="gallery-item">
+                    <div class="image-placeholder-sm">🍽️</div>
+                    <div class="gallery-item-label">Feast Platter</div>
+                    <!-- Replace with: <img src="images/gallery-platter.jpg" alt="Complete Feast Platter"> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservation Section -->
+        <section id="reserve" class="reservation">
+            <h2>Reserve Your Table</h2>
+            <p>Join us for an unforgettable Ethiopian dining experience</p>
+            <form class="form-container" id="reservationForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Preferred Time</label>
+                    <select id="time" name="time" required>
+                        <option value="">Select a time</option>
+                        <option value="1700">5:00 PM</option>
+                        <option value="1730">5:30 PM</option>
+                        <option value="1800">6:00 PM</option>
+                        <option value="1830">6:30 PM</option>
+                        <option value="1900">7:00 PM</option>
+                        <option value="1930">7:30 PM</option>
+                        <option value="2000">8:00 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <select id="guests" name="guests" required>
+                        <option value="">Select number of guests</option>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                        <option value="6">6 Guests</option>
+                        <option value="7+">7+ Guests</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Confirm Reservation</button>
+                <div class="success-message" id="successMessage">
+                    ✓ Reservation request received! We'll confirm via email shortly.
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3 style="color: var(--gold); margin-bottom: 1rem;">Mudai Restaurant</h3>
+            <div class="footer-links">
+                <a href="#menu">Menu</a>
+                <a href="#stories">Heritage</a>
+                <a href="#reserve">Reserve</a>
+                <a href="tel:+15551234567">Call Us</a>
+                <a href="mailto:info@mudai.com">Email</a>
+            </div>
+            <p style="margin-top: 1rem; opacity: 0.8;">
+                Experience authentic Ethiopian cuisine and tradition. Open Tuesday – Sunday, 5 PM – 11 PM
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+                © 2024 Mudai Restaurant. All rights reserved. 🇪🇹
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Filter Functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                // Filter menu items
+                menuItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filterValue === 'all' || category === filterValue) {
+                        item.classList.remove('hidden');
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Reservation Form Submission
+        const reservationForm = document.getElementById('reservationForm');
+        const successMessage = document.getElementById('successMessage');
+
+        reservationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                guests: document.getElementById('guests').value,
+            };
+
+            console.log('Reservation submitted:', formData);
+
+            // Show success message
+            successMessage.style.display = 'block';
+
+            // Reset form
+            reservationForm.reset();
+
+            // Hide success message after 3 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+        });
+
+        // Smooth scroll offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const element = document.querySelector(href);
+                    if (element) {
+                        const navHeight = document.querySelector('nav').offsetHeight;
+                        const elementPosition = element.offsetTop - navHeight;
+                        window.scrollTo({
+                            top: elementPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add scroll animation for ceremony cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.ceremony-card, .story, .menu-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+
