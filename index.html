@@ -940,7 +940,7 @@
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 0;
+            border-radius: 4px;
             aspect-ratio: 1;
             background: linear-gradient(135deg, var(--gold), var(--terracotta));
             display: flex;
@@ -949,20 +949,26 @@
             color: white;
             font-size: 4rem;
             cursor: pointer;
-            transition: opacity 0.3s ease;
-            box-shadow: none;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: none;
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
         }
 
         .gallery-item:hover {
-            opacity: 0.9;
-            transform: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
 
         .gallery-item-label {
@@ -970,11 +976,80 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), transparent);
             color: white;
             padding: 1.5rem 1rem 1rem;
-            font-weight: bold;
-            font-size: 1.1rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background: linear-gradient(to right, rgba(212, 175, 55, 0.05), rgba(200, 90, 58, 0.05));
+            margin-top: 4rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-top: 3px solid var(--gold);
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-item p {
+            color: var(--charcoal);
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-link, .phone-link {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover, .phone-link:hover {
+            color: var(--burgundy);
+        }
+
+        .phone-link {
+            font-size: 1.3rem;
+            display: inline-block;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: var(--terracotta);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--charcoal);
         }
 
         /* Footer */
@@ -1115,13 +1190,12 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="nav-brand">🇪🇹 Mudai</a>
+            <img src="images/Mudai_1_Logo_2.png" alt="Mudai Logo" style="height: 45px; width: auto;">
             <ul class="nav-links">
                 <li><a href="#menu">Menu</a></li>
-                <li><a href="#catering">Catering</a></li>
-                <li><a href="#ordering">Order Online</a></li>
-                <li><a href="#stories">Stories</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#reserve">Reserve</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -1130,7 +1204,7 @@
     <header class="hero">
         <div class="hero-content">
             <h1>Mudai Restaurant</h1>
-            <p class="hero-subtitle">Experience Authentic Ethiopian Cuisine in San Jose, California</p>
+            <p class="hero-subtitle">Experience Authentic Ethiopian Cuisine & Coffee Ceremony</p>
             <a href="#menu" class="cta-button">Explore Our Menu</a>
             <div class="hero-image">
                 <div class="image-placeholder">🍲</div>
@@ -1391,7 +1465,7 @@
                             <li>Delivery to your home</li>
                         </ul>
                     </div>
-                    <a href="tel:+15551234567" class="catering-cta">Request Quote</a>
+                    <a href="tel:+14082922282" class="catering-cta">Request Quote</a>
                 </div>
 
                 <!-- Standard Package -->
@@ -1411,7 +1485,7 @@
                             <li>Serving utensils & platters</li>
                         </ul>
                     </div>
-                    <a href="tel:+15551234567" class="catering-cta">Request Quote</a>
+                    <a href="tel:+14082922282" class="catering-cta">Request Quote</a>
                 </div>
 
                 <!-- Large Event Package -->
@@ -1431,7 +1505,7 @@
                             <li>Custom menu planning</li>
                         </ul>
                     </div>
-                    <a href="tel:+15551234567" class="catering-cta">Request Quote</a>
+                    <a href="tel:+14082922282" class="catering-cta">Request Quote</a>
                 </div>
             </div>
 
@@ -1473,7 +1547,7 @@
             </div>
 
             <div class="ordering-note">
-                📞 Contact us directly at <strong>(555) 123-4567</strong> or email <strong>catering@mudai.com</strong> for personalized quotes and menu planning.
+                📞 Contact us directly at <strong>(408) 292-2282</strong> or email <strong>info@mudaiethiopian.com</strong> for personalized quotes and menu planning.
             </div>
         </section>
 
@@ -1521,7 +1595,7 @@
             </div>
 
             <div class="ordering-note">
-                💡 <strong>Pro Tip:</strong> Ordering directly from our restaurant for pickup comes with a 5% discount! Call us at <strong>(555) 123-4567</strong> to place your order.
+                💡 <strong>Pro Tip:</strong> Ordering directly from our restaurant for pickup comes with a 5% discount! Call us at <strong>(408) 292-2282</strong> to place your order.
             </div>
         </section>
         <section class="gallery">
@@ -1529,34 +1603,32 @@
             <p class="gallery-intro">Discover the artistry and passion that goes into every plate at Mudai</p>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <div class="image-placeholder-sm">🍲</div>
+                    <img src="images/Mudai_Gallery_5.jpg" alt="Ethiopian Dish">
+                    <div class="gallery-item-label">Authentic Flavors</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Mudai_Gallery_6.jpg" alt="Ethiopian Dish">
+                    <div class="gallery-item-label">Spiced Perfection</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Mudai_Gallery_7.jpg" alt="Ethiopian Dish">
                     <div class="gallery-item-label">Traditional Wot</div>
-                    <!-- Replace with: <img src="images/gallery-wot.jpg" alt="Traditional Ethiopian Wot"> -->
                 </div>
                 <div class="gallery-item">
-                    <div class="image-placeholder-sm">☕</div>
-                    <div class="gallery-item-label">Coffee Ceremony</div>
-                    <!-- Replace with: <img src="images/gallery-coffee.jpg" alt="Ethiopian Coffee Ceremony"> -->
+                    <img src="images/Mudai_Gallery_12.jpg" alt="Ethiopian Dish">
+                    <div class="gallery-item-label">Fresh Ingredients</div>
                 </div>
                 <div class="gallery-item">
-                    <div class="image-placeholder-sm">🍞</div>
-                    <div class="gallery-item-label">Fresh Injera</div>
-                    <!-- Replace with: <img src="images/gallery-injera.jpg" alt="Freshly Made Injera"> -->
+                    <img src="images/Mudai_Gallery_13.jpg" alt="Ethiopian Dish">
+                    <div class="gallery-item-label">Culinary Artistry</div>
                 </div>
                 <div class="gallery-item">
-                    <div class="image-placeholder-sm">👥</div>
-                    <div class="gallery-item-label">Community Dining</div>
-                    <!-- Replace with: <img src="images/gallery-community.jpg" alt="Family Gathering"> -->
-                </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder-sm">🌶️</div>
-                    <div class="gallery-item-label">Spice Blend</div>
-                    <!-- Replace with: <img src="images/gallery-spices.jpg" alt="Ethiopian Spices"> -->
-                </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder-sm">🍽️</div>
+                    <img src="images/Mudai_Gallery_14.jpg" alt="Ethiopian Dish">
                     <div class="gallery-item-label">Feast Platter</div>
-                    <!-- Replace with: <img src="images/gallery-platter.jpg" alt="Complete Feast Platter"> -->
+                </div>
+                <div class="gallery-item">
+                    <img src="images/Mudai_1_Gallery_11.png" alt="Ethiopian Restaurant">
+                    <div class="gallery-item-label">Restaurant Ambiance</div>
                 </div>
             </div>
         </section>
@@ -1576,7 +1648,7 @@
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                    <input type="tel" id="phone" name="phone" placeholder="(408) 292-2282" required>
                 </div>
                 <div class="form-group">
                     <label for="date">Preferred Date</label>
@@ -1617,21 +1689,46 @@
     </main>
 
     <!-- Footer -->
+        <!-- Contact Section -->
+        <section id="contact" class="contact-info">
+            <h2>Visit Us</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>503 W San Carlos St</p>
+                    <p>San Jose, CA 95126</p>
+                    <a href="https://www.google.com/maps/search/503+W+San+Carlos+St+San+Jose+CA+95126" target="_blank" class="contact-link">Get Directions</a>
+                </div>
+                <div class="contact-item">
+                    <h3>📞 Phone</h3>
+                    <a href="tel:+14082922282" class="phone-link">(408) 292-2282</a>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Call to make a reservation</p>
+                </div>
+                <div class="contact-item">
+                    <h3>🌐 Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/mudaiethiopian/" target="_blank">Facebook</a>
+                        <a href="https://instagram.com/mudaiethiopianrestaurant" target="_blank">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
         <div class="footer-content">
-            <h3 style="color: var(--gold); margin-bottom: 1rem;">Mudai Restaurant</h3>
+            <h3 style="color: var(--gold); margin-bottom: 1rem;">Mudai Ethiopian Restaurant</h3>
             <div class="footer-links">
                 <a href="#menu">Menu</a>
-                <a href="#stories">Heritage</a>
+                <a href="#gallery">Gallery</a>
                 <a href="#reserve">Reserve</a>
-                <a href="tel:+15551234567">Call Us</a>
-                <a href="mailto:info@mudai.com">Email</a>
+                <a href="#contact">Contact</a>
             </div>
             <p style="margin-top: 1rem; opacity: 0.8;">
-                Experience authentic Ethiopian cuisine and tradition. Open Tuesday – Sunday, 5 PM – 11 PM
+                503 W San Carlos St, San Jose, CA 95126
             </p>
-            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
-                © 2024 Mudai Restaurant. All rights reserved. 🇪🇹
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.7;">
+                © 2026 Mudai Ethiopian Restaurant. All rights reserved. 🇪🇹
             </p>
         </div>
     </footer>
@@ -1738,4 +1835,3 @@
     </script>
 </body>
 </html>
-
